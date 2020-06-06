@@ -1,0 +1,9 @@
+SoapClientTestServlet.class
+soapserver\ApartmentPriceGetterService.class
+ServletUtils.class
+soapserver\ObjectFactory.class
+soapserver\ApartmentPriceGetter.class
+soapserver\GetApartmentPriceResponse.class
+soapserver\package-info.class
+ApartmentPriceGetterClient.class
+soapserver\GetApartmentPrice.class

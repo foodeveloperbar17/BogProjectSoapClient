@@ -1,0 +1,47 @@
+<wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://soapServer/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" name="ApartmentPriceGetterService" targetNamespace="http://soapServer/">
+    <wsdl:types>
+        <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://soapServer/" elementFormDefault="unqualified" targetNamespace="http://soapServer/" version="1.0">
+            <xs:element name="getApartmentPrice" type="tns:getApartmentPrice"/>
+            <xs:element name="getApartmentPriceResponse" type="tns:getApartmentPriceResponse"/>
+            <xs:complexType name="getApartmentPrice">
+                <xs:sequence>
+                    <xs:element name="arg0" type="xs:int"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="getApartmentPriceResponse">
+                <xs:sequence>
+                    <xs:element name="return" type="xs:double"/>
+                </xs:sequence>
+            </xs:complexType>
+        </xs:schema>
+    </wsdl:types>
+    <wsdl:message name="getApartmentPrice">
+        <wsdl:part element="tns:getApartmentPrice" name="parameters"> </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="getApartmentPriceResponse">
+        <wsdl:part element="tns:getApartmentPriceResponse" name="parameters"> </wsdl:part>
+    </wsdl:message>
+    <wsdl:portType name="ApartmentPriceGetter">
+        <wsdl:operation name="getApartmentPrice">
+            <wsdl:input message="tns:getApartmentPrice" name="getApartmentPrice"> </wsdl:input>
+            <wsdl:output message="tns:getApartmentPriceResponse" name="getApartmentPriceResponse"> </wsdl:output>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="ApartmentPriceGetterServiceSoapBinding" type="tns:ApartmentPriceGetter">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="getApartmentPrice">
+            <soap:operation soapAction="" style="document"/>
+            <wsdl:input name="getApartmentPrice">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="getApartmentPriceResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="ApartmentPriceGetterService">
+        <wsdl:port binding="tns:ApartmentPriceGetterServiceSoapBinding" name="ApartmentPriceGetterPort">
+            <soap:address location="http://localhost:8080/BogProject-1/ApartmentPriceGetter"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>
